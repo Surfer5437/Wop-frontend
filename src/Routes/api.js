@@ -10,7 +10,7 @@ const BASE_URL = process.env.REACT_APP_API_ADDRESS || "http://localhost:3001";
  *
  */
 
-class ImApi {
+class WopApi {
   // the token for interactive with the API will be stored here.
   static token;
   
@@ -58,7 +58,6 @@ class ImApi {
   static async getCompanies() {
     try{
       let res = await this.request(`companies/`);
-      console.log(res)
     return (res);
     } catch (err){
       return null;
@@ -127,4 +126,4 @@ class ImApi {
 }
 
 
-    export default ImApi;
+    export default WopApi;
