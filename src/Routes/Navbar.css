@@ -1,0 +1,19 @@
+
+
+.Navbar a {
+    font-size:1.5rem;
+    margin: 1rem;
+    color: rgba(27, 27, 27, 0.7);
+    text-decoration:none;
+    border-radius: 10px;
+}
+
+.Navbar a.active {
+    color: black;
+    font-weight: bolder;
+}
+
+.nav_list li{
+    height: 100%;
+    display: inline-block;
+}
