@@ -2,28 +2,24 @@ import React, { useState, useEffect } from 'react';
 import WopApi from '../api.js';
 import GridComponent from '../../Helpers/GridComponent.jsx'
 
-function Companies() {
-
+function Users() {
 const [gridData, setGridData] = useState(null);
 
 useEffect(() => {
-  async function companiesLoad() {
+  async function usersLoad() {
     try {
-      const result = await WopApi.getCompanies();
-      setGridData(result.companies);
+      const result = await WopApi.getUsers();
+      setGridData(result.users);
     } catch (error) {
-      console.error('Error loading companies:', error);
+      console.error('Error loading users:', error);
     }
   }
-
-  companiesLoad(); // Invoke the async function immediately
-
+  usersLoad(); // Invoke the async function immediately
 }, []);  
 
   return (
-
           <div className="container">
-            <p className='display-4'>Companies</p>
+            <p className='display-4'>Users</p>
             {gridData? 
                 <>
       <div>
@@ -34,4 +30,4 @@ useEffect(() => {
   );
 }
 
-export default Companies;
+export default Users;

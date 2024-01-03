@@ -15,7 +15,7 @@ const Navbar = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-                
+
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
@@ -24,23 +24,20 @@ const Navbar = () => {
                   <a className="nav-link text-dark" href="/">Home</a>
                 </li>
                 
-                {localStorage.getItem('is_admin') === 'true'?
+                {/* {localStorage.getItem('is_admin') === 'true'? */}
                 <>
                 <li className="nav-item">
                   <a className="nav-link text-dark" href="/companies">Companies</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link text-dark" href="/allinvoices">Invoices</a>
+                  <a className="nav-link text-dark" href="/workorders">Work Orders</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link text-dark" href="/users">Users</a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link text-dark" href="/companyinvoices">Invoices</a>
-                </li>
                 </>
-                :<>
-                </>}
+                {/* :<>
+                </>} */}
 
               </ul>
               {localStorage.getItem('username')!=='null'?

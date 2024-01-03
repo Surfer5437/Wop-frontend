@@ -73,9 +73,9 @@ class WopApi {
     }
   }
 
-  static async getAllInvoices(company_id) {
+  static async getAllWorkOrders() {
     try{
-      let res = await this.request(`invoices/`);
+      let res = await this.request(`allworkorders/`);
     return (res);
     } catch (err){
       return null;
