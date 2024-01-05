@@ -47,12 +47,16 @@ class WopApi {
 
   // Individual API routes
 
-  /** Get details on a company by handle. */
+  /** Get details on a company by id. */
 
-  static async getCompany(handle) {
-    let res = await this.request(`companies/${handle}`);
+  static async getCompany(id) {
+    let res = await this.request(`companies/${id}`);
     return (res.company);
+  }
 
+  static async patchCompany(id,info) {
+    let res = await this.request(`companies/${id}`, info, 'patch' );
+    return (res);
   }
 
   static async getCompanies() {

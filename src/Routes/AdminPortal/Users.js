@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import WopApi from '../api.js';
 import GridComponent from '../../Helpers/GridComponent.jsx'
+import { NavLink } from 'react-router-dom';
 
 function Users() {
 const [gridData, setGridData] = useState(null);
@@ -20,6 +21,9 @@ useEffect(() => {
   return (
           <div className="container">
             <p className='display-4'>Users</p>
+            <NavLink to='/AddNewCompany'>
+            <button className="btn btn-primary btn-block my-3">Add New User</button>
+            </NavLink>
             {gridData? 
                 <>
       <div>

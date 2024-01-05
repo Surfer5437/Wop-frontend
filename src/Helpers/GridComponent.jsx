@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
-const MyAgGridComponent = ({ rowData }) => {
+const MyAgGridComponent = ({ rowData, page }) => {
+  const navigate = useNavigate();
   const [gridApi, setGridApi] = useState(null);
   let gridColumnArray = [];
-
   if (rowData !== null && rowData.length > 0) {
     const colArray = Object.keys(rowData[0]);
 
@@ -23,6 +24,28 @@ const MyAgGridComponent = ({ rowData }) => {
     setGridApi(params.api);
   };
 
+  const onRowDoubleClicked = (event) => {
+    // Access the data of the double-clicked row
+    const rowData = event.data;
+    switch (page) {
+      case 'companies':
+        navigate(`/updatecompany/${rowData.id}`);
+    console.log('Double-clicked row data:', rowData)
+        break;
+    
+      default:
+        break;
+    }
+
+
+    
+    
+    
+    
+
+    // Add your logic to handle the double-clicked row data
+    // For example, you can open a modal or navigate to another page
+  };
   useEffect(() => {
     if (gridApi) {
       gridApi.sizeColumnsToFit();
@@ -36,6 +59,8 @@ const MyAgGridComponent = ({ rowData }) => {
         defaultColDef={defaultColDef}
         rowData={rowData}
         domLayout='autoHeight' // Auto-height for rows
+        rowSelection={'single'}
+        onRowDoubleClicked={onRowDoubleClicked} // Set the double-click event handler
         onGridReady={onGridReady}
       />
     </div>
