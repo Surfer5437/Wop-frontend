@@ -1,14 +1,14 @@
 import { useState } from "react";
 import WopApi from "../api";
 
-function  AddNewCompany () {
+function  AddNewService () {
     const initialState = {
-        name: "",
-        address: "",
-        contact_name: "",
-        phone_number: "",
-        tax_id: "",
-        email: ""
+        date: "",
+        service_type: "",
+        pdf_file_id: "",
+        company_id: "",
+        po_number: "",
+        invoice_number: ""
     };
 
    const [formData, setFormData] = useState(initialState);
@@ -86,19 +86,10 @@ function  AddNewCompany () {
                 value={formData.tax_id}
                 onChange={handleChange}/>
 
-                <input
-                className="form-control my-3"
-                id="email"
-                type="text"
-                name="email"
-                placeholder="email"
-                value={formData.email}
-                onChange={handleChange}/>
-
                 <button className="btn btn-primary btn-block my-3">Submit</button>
             </form>
         </div></div></div></div>
     )
 }
 
-export default AddNewCompany;
+export default AddNewService;

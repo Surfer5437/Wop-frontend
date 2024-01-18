@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import WopApi from "../api";
+import Emailjs from '../../Helpers/Email.js';
 
 function  AddNewCompany () {
     const { id } = useParams();
@@ -10,7 +11,8 @@ function  AddNewCompany () {
         address: "",
         contact_name: "",
         phone_number: "",
-        tax_id: ""
+        tax_id: "",
+        email:""
     };
 
    const [formData, setFormData] = useState(initialState);
@@ -21,7 +23,7 @@ function  AddNewCompany () {
             [name]: value
         }))
     }
-  
+  // get specific company data from database and catch error.
     useEffect(() => {
       async function companyLoad() {
         try {
@@ -51,8 +53,25 @@ function  AddNewCompany () {
         } catch(e){
             alert(e[0])
         }
-           
     }
+
+    async function emailRegisterUser(){
+   const linkText = 'Click Here';
+        const url = 'https://www.google.com';
+        const messageTextArea = `<html>
+        <body>
+          <p>Your company has been added to our work order portal. Please click the following link to register your login information for your company.</p>
+          <a href="${url}">${linkText}</a>
+          <p>If link doesn't work, please copy and paste the following link into your browser.<p/>
+          <p>${url}</p>
+        </body>
+      </html>`
+      Emailjs.sendEmailData({
+        to_name:formData.name,
+        to_email:formData.email,
+        message:messageTextArea
+      });
+    };
 
     return (
         
@@ -110,7 +129,18 @@ function  AddNewCompany () {
                 value={formData.tax_id}
                 onChange={handleChange}/>
 
+                <input
+                className="form-control my-3"
+                id="email"
+                type="text"
+                name="email"
+                placeholder="company email"
+                value={formData.email}
+                onChange={handleChange}/>
+
                 <button className="btn btn-primary btn-block my-3">Submit</button>
+                
+            <button onClick={emailRegisterUser}>test email</button>
             </form></>: <div className='display-4'>Loading..........</div>}
         </div></div></div></div>
     )

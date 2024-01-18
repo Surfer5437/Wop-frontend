@@ -30,7 +30,6 @@ const MyAgGridComponent = ({ rowData, page }) => {
     switch (page) {
       case 'companies':
         navigate(`/updatecompany/${rowData.id}`);
-    console.log('Double-clicked row data:', rowData)
         break;
     
       default:

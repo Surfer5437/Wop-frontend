@@ -18,10 +18,12 @@ useEffect(() => {
   usersLoad(); // Invoke the async function immediately
 }, []);  
 
+
+
   return (
           <div className="container">
             <p className='display-4'>Users</p>
-            <NavLink to='/AddNewCompany'>
+            <NavLink to='/AddNewInvoice'>
             <button className="btn btn-primary btn-block my-3">Add New User</button>
             </NavLink>
             {gridData? 
