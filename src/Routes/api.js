@@ -127,6 +127,22 @@ class WopApi {
     return (res);
   }
 
+  static async sendRegistrationEmailForNewUser(info) {
+    let res = await this.request(`users/sendRegistrationEmailForNewUser/`, info, 'post' );
+    return (res);
+  }
+
+  static async getRegistraionCompanyInfo(info) {
+    let res = await this.request(`users/getRegistraionCompanyInfo/`, {info}, 'post' );
+    console.log(res)
+    return (res);
+  }
+
+  static async registerUserToCompany(info) {
+    let res = await this.request(`users/registeruser`, info, 'post' );
+    console.log(res)
+    return (res);
+  }
 }
 
 

@@ -6,6 +6,7 @@ import Users from './AdminPortal/Users';
 import AllWorkOrders from './AdminPortal/WorkOrders';
 import AddNewCompany from './AdminPortal/AddNewCompany';
 import UpdateCompany from './AdminPortal/UpdateCompany';
+import RegisterUser from './CustomerPortal/RegisterUser';
 
 const Router = () => {
     return (
@@ -18,6 +19,8 @@ const Router = () => {
             <Route path="workorders" element={<AllWorkOrders />} />
             <Route path="addNewCompany" element={<AddNewCompany />} />
             <Route path="updatecompany/:id" element={<UpdateCompany />} />
+            <Route path="users/register/:registerLink" element={<RegisterUser />} />
+          
           </Route>
         </Routes>
       </BrowserRouter>
