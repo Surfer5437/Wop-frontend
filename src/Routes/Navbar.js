@@ -1,11 +1,20 @@
 import { Outlet } from "react-router-dom";
 import './Navbar.css'
+
 const Navbar = () => {
   return (
         <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-warning font-weight-bold">
           <div className="container">
-            <a className="navbar-brand text-dark " href="/">Work Order Portal</a>
+          
+            <a className="navbar-brand text-dark " href="/"><div className="logo-container"> 
+                <img 
+                    src={"./WOPtransparent.png"} 
+                    className="logo img-fluid"
+                    alt="Logo"
+                    width="100" height="100"
+                /> 
+            </div></a>
             <button
               className="navbar-toggler"
               type="button"
@@ -49,6 +58,7 @@ const Navbar = () => {
           </div>
         </nav>
         <Outlet />
+        
         </>
       );
     };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import WopApi from "../api";
 import Emailjs from '../../Helpers/Email.js';
+import Background from '../../Helpers/Background';
 
 function AddNewCompany() {
   const { id } = useParams();
@@ -78,76 +79,78 @@ function AddNewCompany() {
 
   }
   return (
+    <>
+      <Background />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 custom-container mx-auto">
+            <div className="container border rounded p-4 my-3">
+              <h1 className="my-3">Update Company Information</h1>
+              {formData ?
+                <>
+                  <form onSubmit={handleSubmit}>
+                    <input
+                      className="form-control my-3"
+                      id="name"
+                      type="text"
+                      name="name"
+                      placeholder="Company name"
+                      value={formData.name}
+                      onChange={handleChange} required />
 
-    <div className="container">
-      <div className="row">
-        <div className="col-md-6 custom-container mx-auto">
-          <div className="container border rounded p-4 my-3">
-            <h1 className="my-3">Update Company Information</h1>
-            {formData ?
-              <>
-                <form onSubmit={handleSubmit}>
-                  <input
-                    className="form-control my-3"
-                    id="name"
-                    type="text"
-                    name="name"
-                    placeholder="Company name"
-                    value={formData.name}
-                    onChange={handleChange} required />
+                    <input
+                      className="form-control my-3"
+                      id="address"
+                      type="text"
+                      name="address"
+                      placeholder="Address"
+                      value={formData.address}
+                      onChange={handleChange} required />
 
-                  <input
-                    className="form-control my-3"
-                    id="address"
-                    type="text"
-                    name="address"
-                    placeholder="Address"
-                    value={formData.address}
-                    onChange={handleChange} required />
+                    <input
+                      className="form-control my-3"
+                      id="contact_name"
+                      type="text"
+                      name="contact_name"
+                      placeholder="contact name"
+                      value={formData.contact_name}
+                      onChange={handleChange} required />
 
-                  <input
-                    className="form-control my-3"
-                    id="contact_name"
-                    type="text"
-                    name="contact_name"
-                    placeholder="contact name"
-                    value={formData.contact_name}
-                    onChange={handleChange} required />
+                    <input
+                      className="form-control my-3"
+                      id="phone_number"
+                      type="integer"
+                      name="phone_number"
+                      placeholder="phone number"
+                      value={formData.phone_number}
+                      onChange={handleChange} required />
 
-                  <input
-                    className="form-control my-3"
-                    id="phone_number"
-                    type="integer"
-                    name="phone_number"
-                    placeholder="phone number"
-                    value={formData.phone_number}
-                    onChange={handleChange} required />
+                    <input
+                      className="form-control my-3"
+                      id="tax_id"
+                      type="text"
+                      name="tax_id"
+                      placeholder="tax id number"
+                      value={formData.tax_id}
+                      onChange={handleChange} />
 
-                  <input
-                    className="form-control my-3"
-                    id="tax_id"
-                    type="text"
-                    name="tax_id"
-                    placeholder="tax id number"
-                    value={formData.tax_id}
-                    onChange={handleChange} />
+                    <input
+                      className="form-control my-3"
+                      id="email"
+                      type="text"
+                      name="email"
+                      placeholder="company email"
+                      value={formData.email}
+                      onChange={handleChange} />
 
-                  <input
-                    className="form-control my-3"
-                    id="email"
-                    type="text"
-                    name="email"
-                    placeholder="company email"
-                    value={formData.email}
-                    onChange={handleChange} />
+                    <button className="btn btn-primary btn-block my-3">Submit</button>
 
-                  <button className="btn btn-primary btn-block my-3">Submit</button>
-                  
-                </form></> : <div className='display-4'>Loading..........</div>}
-                {formData.user_id === null ?
-                    <><button className="btn btn-primary btn-block my-3" onClick={hashing}>Send email to register user</button>
-                    </> : <><div>Has user assigned to company.</div></>}
-          </div></div></div></div>
+                  </form></> : <div className='display-4'>Loading..........</div>}
+              {formData.user_id === null ?
+                <><button className="btn btn-primary btn-block my-3" onClick={hashing}>Send email to register user</button>
+                </> : <><div>Has user assigned to company.</div></>}
+            </div></div></div></div>
+    </>
   )
 }
 
