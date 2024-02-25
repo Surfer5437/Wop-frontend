@@ -192,7 +192,7 @@ function AddNewService() {
 
         try {
             console.log(submissionFormData)
-            const response = await WopApi.uploadFile(submissionFormData);
+            await WopApi.uploadFile(submissionFormData);
             setSubmissionStatus({ success: true, message: "Submission successful!" });
             setFormData(initialState);
             setFiles([]);

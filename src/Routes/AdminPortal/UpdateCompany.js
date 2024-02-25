@@ -76,7 +76,6 @@ function AddNewCompany() {
     } catch (e) {
       alert(e[0])
     }
-
   }
   return (
     <>
@@ -144,7 +143,6 @@ function AddNewCompany() {
                       onChange={handleChange} />
 
                     <button className="btn btn-primary btn-block my-3">Submit</button>
-
                   </form></> : <div className='display-4'>Loading..........</div>}
               {formData.user_id === null ?
                 <><button className="btn btn-primary btn-block my-3" onClick={hashing}>Send email to register user</button>
